@@ -1,11 +1,15 @@
 import { Bookmark, Chat, Event, Group, HelpOutline, PlayCircleFilledOutlined, RssFeed, School, WorkOutline } from '@material-ui/icons'
 import React from 'react'
 import styled from 'styled-components'
+import CloseFriend from './CloseFriend'
+import { Users } from '../dummyData'
 
 const Cont = styled.div`
 flex: 3;
 height: calc(100vh - 50px);
 overflow-y: scroll;
+position: sticky;
+top: 50px;
 
 &::-webkit-scrollbar {
     width: 5px;
@@ -55,23 +59,6 @@ padding: 0;
 margin: 0;
 list-style: none;
 `
-const Friend = styled.li`
-display: flex;
-align-items: center;
-margin-bottom: 15px;
-`
-
-const FImg = styled.img`
-border-radius: 50%;
-height: 32px;
-width: 32px;
-object-fit: cover;
-margin-right: 10px;
-`
-
-const FName = styled.span`
-
-`
 
 
 const Sidebar = () => {
@@ -119,35 +106,9 @@ const Sidebar = () => {
                 <Button>Show More</Button>
                 <HLine/>
                 <FriendList>
-                    <Friend>
-                        <FImg src="./assets/person/2.jpeg" alt="Friend's name"/>
-                        <FName>John Lane</FName>
-                    </Friend>
-                    <Friend>
-                        <FImg src="./assets/person/2.jpeg" alt="Friend's name"/>
-                        <FName>John Lane</FName>
-                    </Friend>
-                    <Friend>
-                        <FImg src="./assets/person/2.jpeg" alt="Friend's name"/>
-                        <FName>John Lane</FName>
-                    </Friend>
-                    <Friend>
-                        <FImg src="./assets/person/2.jpeg" alt="Friend's name"/>
-                        <FName>John Lane</FName>
-                    </Friend>
-                    <Friend>
-                        <FImg src="./assets/person/2.jpeg" alt="Friend's name"/>
-                        <FName>John Lane</FName>
-                    </Friend>
-                    <Friend>
-                        <FImg src="./assets/person/2.jpeg" alt="Friend's name"/>
-                        <FName>John Lane</FName>
-                    </Friend>
-                    <Friend>
-                        <FImg src="./assets/person/2.jpeg" alt="Friend's name"/>
-                        <FName>John Lane</FName>
-                    </Friend>
-                   
+                    {Users.map((u) => (
+                    <CloseFriend user={u} key={u.id}/>
+                    ))}
                 </FriendList>
             </Wrapper>
         </Cont>

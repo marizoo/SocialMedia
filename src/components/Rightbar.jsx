@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Users } from '../dummyData'
+import Online from './Online'
 
 const Cont = styled.div`
 flex: 3.5;
@@ -38,39 +40,7 @@ padding: 0;
 margin: 0;
 list-style:none;
 `
-const OlFriend = styled.li`
-display: flex;
-align-items: center;
-margin-bottom: 15px;
-`
-
-const ProfileImgCont = styled.div`
-margin-right: 10px;
-position: relative;
-`
-
-const ProfileImg = styled.img`
-width: 40px;
-height: 40px;
-border-radius: 50%;
-object-fit: cover;
-`
-
-const OnlineBadge = styled.span`
-width: 12px;
-height: 12px;
-border-radius: 50%;
-background-color: limegreen;
-position: absolute;
-top: -2px;
-right: 0;
-border: 2px solid white;
-`
-
-const UserName = styled.span`
-font-weight: 500;
-`
-    
+   
 
 
 const Rightbar = () => {
@@ -84,41 +54,10 @@ const Rightbar = () => {
             <AdImg src="./assets/ad.png" alt="advertisement image"/>
             <RightBarTitle>Online Friends</RightBarTitle>
             <OlFriendsList>
-                <OlFriend>
-                    <ProfileImgCont>
-                       <ProfileImg src="./assets/person/3.jpeg" alt="Friend's picture who is online" />
-                       <OnlineBadge></OnlineBadge>
-                    </ProfileImgCont>
-                    <UserName>Eva Green</UserName>
-                </OlFriend>
-                <OlFriend>
-                    <ProfileImgCont>
-                       <ProfileImg src="./assets/person/3.jpeg" alt="Friend's picture who is online" />
-                       <OnlineBadge></OnlineBadge>
-                    </ProfileImgCont>
-                    <UserName>Eva Green</UserName>
-                </OlFriend>
-                <OlFriend>
-                    <ProfileImgCont>
-                       <ProfileImg src="./assets/person/3.jpeg" alt="Friend's picture who is online" />
-                       <OnlineBadge></OnlineBadge>
-                    </ProfileImgCont>
-                    <UserName>Eva Green</UserName>
-                </OlFriend>
-                <OlFriend>
-                    <ProfileImgCont>
-                       <ProfileImg src="./assets/person/3.jpeg" alt="Friend's picture who is online" />
-                       <OnlineBadge></OnlineBadge>
-                    </ProfileImgCont>
-                    <UserName>Eva Green</UserName>
-                </OlFriend>
-                <OlFriend>
-                    <ProfileImgCont>
-                       <ProfileImg src="./assets/person/3.jpeg" alt="Friend's picture who is online" />
-                       <OnlineBadge></OnlineBadge>
-                    </ProfileImgCont>
-                    <UserName>Eva Green</UserName>
-                </OlFriend>
+                {Users.map((u) => (
+                    <Online key={u.id} user={u} />
+                ))}
+               
             </OlFriendsList>
             </Wrapper>
         </Cont>

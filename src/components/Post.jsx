@@ -1,6 +1,7 @@
 import { MoreVert } from '@material-ui/icons'
 import React from 'react'
 import styled from 'styled-components'
+import { Users } from '../dummyData'
 
 const Cont = styled.div`
 width: 100%;
@@ -87,15 +88,21 @@ border-bottom: 1px dashed gray;
 font-size: 15px;
 `
 
-const Post = () => {
+const Post = ({post}) => {
+
+   
     return (
         <Cont>
             <Wrapper>
                 <Top>
                     <TopLeft>
-                        <PostProfileImg src="./assets/person/1.jpeg" alt="profile photo"/>
-                        <PostUserName>Fox Muldor</PostUserName>
-                        <PostDate>5 mins ago</PostDate>
+                        <PostProfileImg 
+                        src= {Users.filter(u=>u.id === post.userId)[0].profilePicture}
+                        alt="profile photo"/>
+                        <PostUserName>
+                            {Users.filter(u=>u.id === post.userId)[0].username}
+                        </PostUserName>
+                        <PostDate>{post.date}</PostDate>
                     </TopLeft>
                     <TopRight>
                         <MoreVert/>
@@ -103,18 +110,18 @@ const Post = () => {
                 </Top>
 
                 <Center>
-                    <PostText>Hey! Its my first post! :-)</PostText>
-                    <PostImg src="./assets/post/1.jpeg" alt="post image"/>
+                    <PostText>{post?.desc}</PostText>
+                    <PostImg src={post.photo} alt={post?.desc}/>
                 </Center>
 
                 <Bottom>
                     <BottomLeft>
                         <BottomIcons src="./assets/like.png" alt="like icon"/>
                         <BottomIcons src="./assets/heart.png" alt="heart icon"/>
-                        <LikeCounter>32 likes</LikeCounter>
+                        <LikeCounter>{post.like} likes</LikeCounter>
                     </BottomLeft>
                     <BottomRight>
-                        <CommentText>9 comments</CommentText>
+                        <CommentText>{post.comment} comments</CommentText>
                     </BottomRight>
                 </Bottom>
 
