@@ -1,7 +1,8 @@
 import { MoreVert } from '@material-ui/icons'
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Users } from '../dummyData'
+
 
 const Cont = styled.div`
 width: 100%;
@@ -90,6 +91,13 @@ font-size: 15px;
 
 const Post = ({post}) => {
 
+    const [like, setLike] = useState(post.like);
+    const [isLiked, setIsLiked] = useState(false);
+
+    const likeHandler = () => {
+        setLike(isLiked ? like - 1 : like + 1);
+        setIsLiked(!isLiked);
+    }
    
     return (
         <Cont>
@@ -116,9 +124,9 @@ const Post = ({post}) => {
 
                 <Bottom>
                     <BottomLeft>
-                        <BottomIcons src="./assets/like.png" alt="like icon"/>
-                        <BottomIcons src="./assets/heart.png" alt="heart icon"/>
-                        <LikeCounter>{post.like} likes</LikeCounter>
+                        <BottomIcons src="./assets/like.png" onClick={likeHandler} alt="like icon"/>
+                        <BottomIcons src="./assets/heart.png" onClick={likeHandler} alt="heart icon"/>
+                        <LikeCounter>{like} likes</LikeCounter>
                     </BottomLeft>
                     <BottomRight>
                         <CommentText>{post.comment} comments</CommentText>
