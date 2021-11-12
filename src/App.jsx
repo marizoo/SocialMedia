@@ -1,7 +1,8 @@
 import { ThemeProvider } from "styled-components";
-import Login from "./pages/Login";
+// import Login from "./pages/Login";
+// import Register from "./pages/Register";
 // import Home from "./pages/Home";
-// import Profile from "./pages/Profile";
+import Profile from "./pages/Profile";
 
 const theme = {
   colors: {
@@ -17,7 +18,7 @@ const theme = {
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
-    <Login />
+    <Profile />
     </ThemeProvider>
   )
   

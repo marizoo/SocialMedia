@@ -162,7 +162,7 @@ const Rightbar = ({profile}) => {
     return (
         <Cont>
             <Wrapper>
-                <ProfileRightbar />
+                {profile ? <ProfileRightbar /> : <HomeRightbar />}
             </Wrapper>
         </Cont>
     )
