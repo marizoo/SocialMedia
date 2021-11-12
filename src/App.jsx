@@ -1,5 +1,6 @@
 import { ThemeProvider } from "styled-components";
-import Home from "./pages/Home";
+// import Home from "./pages/Home";
+import Profile from "./pages/Profile";
 
 const theme = {
   colors: {
@@ -13,7 +14,7 @@ const theme = {
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
-    <Home />
+    <Profile />
     </ThemeProvider>
   )
   
