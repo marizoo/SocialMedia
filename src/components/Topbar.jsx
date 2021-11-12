@@ -103,7 +103,7 @@ const Topbar = () => {
     return (
         <Cont>
             <Left>
-                <Logo>Uniqorns</Logo>
+                <Logo>UniQueers</Logo>
             </Left>
 
             <Center>
